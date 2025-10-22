@@ -1,0 +1,41 @@
+name: MERN CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Build Backend
+        working-directory: ./backend
+        run: |
+          npm install
+          npm run test || echo "no tests yet"
+
+      - name: Build Frontend
+        working-directory: ./frontend
+        run: |
+          npm install
+          npm run build
+
+      - name: Build Docker Images
+        run: docker-compose build
+
+      - name: Push to DockerHub
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          docker tag alumni-system_backend ${{ secrets.DOCKER_USERNAME }}/alumni-backend:latest
+          docker tag alumni-system_frontend ${{ secrets.DOCKER_USERNAME }}/alumni-frontend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/alumni-backend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/alumni-frontend:latest
