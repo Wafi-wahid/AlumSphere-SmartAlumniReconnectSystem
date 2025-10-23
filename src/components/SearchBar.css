@@ -1,0 +1,56 @@
+/* 🔹 Main container for search bar and filter button */
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px; /* space between search bar and filter button */
+}
+
+/* 🔹 Wrapper for search icon and input field */
+.search-box {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* 🔹 Search icon styling */
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #6b7280; /* gray color */
+  font-size: 13px;
+}
+
+/* 🔹 Input field styling */
+.search-input {
+  width: 100%;
+  padding: 10px 15px 10px 36px; /* extra left padding for the icon */
+  border: 1px solid #d1d5db;
+  border-radius: 8px 0 0 8px; /* rounded corners on the left side */
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* 🔹 Filter button styling */
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* space between icon and text */
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 0 8px 8px 0; /* rounded corners on the right side */
+  cursor: pointer;
+}
+
+/* 🔹 Filter icon styling */
+.filter-icon {
+  font-size: 18px; /* slightly larger icon size */
+}
+
+/* 🔹 Hover effect for filter button */
+.filter-btn:hover {
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.03); /* subtle shadow on hover */
+}

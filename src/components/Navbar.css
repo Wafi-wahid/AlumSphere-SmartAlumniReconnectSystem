@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 15px 70px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-weight: 700;
+  color: #1e3a8a;
+  font-size: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  color: #374151;
+  margin: 0;
+}
+
+.nav-links li {
+  cursor: pointer;
+}
+
+.navbar-right button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  margin-left: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sign-in {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #374151;
+}
+
+.join-btn {
+  background: #2563eb;
+  color: white;
+}

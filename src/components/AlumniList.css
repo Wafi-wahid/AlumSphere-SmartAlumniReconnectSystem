@@ -1,0 +1,47 @@
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px; /* Keeps spacing between cards consistent */
+}
+
+/* 👇 Controls spacing between name, class, and major */
+.header-text {
+  line-height: 1.6; /* Keeps text lines closer together */
+}
+
+.header-text h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d4ed8; /* Blue name text */
+}
+
+.header-text .class {
+  margin: 2px 0; /* Small space between name and class */
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.header-text .major {
+  margin-top: 3px; /* Small space between class and major */
+  background-color: #facc15;
+  color: black;
+  font-weight: 600;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.profile-pic {
+  width: 74px;          /* Increased size from 60–70px */
+  height: 74px;
+  border-radius: 50%;   /* Makes the image circular */
+  object-fit: cover;    /* Prevents image distortion */
+  border: 2px solid #e5e7eb; /* Adds a subtle border */
+  margin-right: 12px;   /* Adds small spacing between image and text */
+}
+
+.alumni-list-container {
+  position: relative;
+}
