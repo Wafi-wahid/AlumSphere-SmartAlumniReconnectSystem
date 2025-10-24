@@ -7,7 +7,7 @@ import "./RequestForm.css"; // Import RequestForm.css for notification styles
 const alumniData = [
   {
     name: "Maria Kiran",
-    class: "Class of 2025",
+    class: "Fall 2022",
     major: "Software Engineer",
     role: "Senior Web developer",
     company: "Microsoft",
@@ -19,7 +19,7 @@ const alumniData = [
   },
   {
     name: "Jaweriya Khan",
-    class: "Class of 2021",
+    class: "Fall 2022",
     major: "Software Engineering",
     role: "Frontend Developer",
     company: "Systems Limited",
@@ -31,7 +31,7 @@ const alumniData = [
   },
   {
     name: "Hassan Raza",
-    class: "Class of 2017",
+    class: "Fall 2022",
     major: "Software Engineering",
     role: "Full Stack Developer",
     company: "NETSOL Technologies",
@@ -43,7 +43,7 @@ const alumniData = [
   },
   {
     name: "Ume Rubab Malik",
-    class: "Class of 2019",
+    class: "Fall 2022",
     major: "Information Technology",
     role: "UI/UX Designer",
     company: "Techlogix",
@@ -55,7 +55,7 @@ const alumniData = [
   },
   {
     name: "Wafi Wahid",
-    class: "Class of 2020",
+    class: "Fall 2022",
     major: "Computer Science",
     role: "Backend Engineer",
     company: "10Pearls",
@@ -67,7 +67,7 @@ const alumniData = [
   },
   {
     name: "Arisha Noor",
-    class: "Class of 2018",
+    class: "Fall 2022",
     major: "Data Science",
     role: "Data Analyst",
     company: "Careem",
@@ -79,7 +79,7 @@ const alumniData = [
   },
   {
     name: "Usman Khalid",
-    class: "Class of 2019",
+    class: "Fall 2022",
     major: "Electrical Engineering",
     role: "Project Engineer",
     company: "Siemens Pakistan",
@@ -91,7 +91,7 @@ const alumniData = [
   },
   {
     name: "Minal Fatima",
-    class: "Class of 2022",
+    class: "Fall 2022",
     major: "Artificial Intelligence",
     role: "Machine Learning Engineer",
     company: "VisionX",
@@ -103,7 +103,7 @@ const alumniData = [
   },
   {
     name: "Bilal Ahmed",
-    class: "Class of 2016",
+    class: "Fall 2022",
     major: "Computer Science",
     role: "DevOps Engineer",
     company: "TPL Corp",
@@ -115,7 +115,7 @@ const alumniData = [
   },
   {
     name: "Laiba Noor",
-    class: "Class of 2023",
+    class: "Fall 2022",
     major: "Cybersecurity",
     role: "Security Analyst",
     company: "Inbox Business Technologies",
@@ -127,7 +127,7 @@ const alumniData = [
   },
   {
     name: "Sara Imtiaz",
-    class: "Class of 2018",
+    class: "Fall 2022",
     major: "Media Studies",
     role: "Content Producer",
     company: "ARY Digital Network",
@@ -139,7 +139,7 @@ const alumniData = [
   },
   {
     name: "Areeba Saleem",
-    class: "Class of 2021",
+    class: "Fall 2022",
     major: "Business Administration",
     role: "Marketing Coordinator",
     company: "Jazz Pakistan",

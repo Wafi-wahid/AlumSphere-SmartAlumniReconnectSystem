@@ -12,5 +12,5 @@ const alumniSchema = new mongoose.Schema({
   skills: [String],
   image: String,
 });
+export default mongoose.model("Alumni", alumniSchema, "Alumni");
 
-export default mongoose.model("Alumni", alumniSchema);

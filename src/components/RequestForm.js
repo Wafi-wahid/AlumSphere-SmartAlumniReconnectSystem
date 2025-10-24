@@ -7,8 +7,9 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
   const [date, setDate] = useState('');
   const [keyPoints, setKeyPoints] = useState('');
   const [showErrors, setShowErrors] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setShowErrors(true);
 
@@ -16,14 +17,43 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
       return;
     }
 
-    // Notify parent of success and close the form modal
-    onSubmitSuccess();
-    setShowErrors(false);
-    setTopicName('');
-    setType('');
-    setDate('');
-    setKeyPoints('');
-    onClose();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/requests', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mentorName,
+          topicName,
+          type,
+          date,
+          keyPoints,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to save request');
+      }
+
+      const data = await response.json();
+      console.log('✅ Request saved successfully:', data);
+
+      // Notify parent and reset form
+      onSubmitSuccess();
+      setShowErrors(false);
+      setTopicName('');
+      setType('');
+      setDate('');
+      setKeyPoints('');
+      onClose();
+    } catch (error) {
+      console.error('❌ Error saving request:', error);
+      alert('Something went wrong while submitting your request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCancel = () => {
@@ -95,7 +125,13 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
             value={keyPoints}
             onChange={(e) => setKeyPoints(e.target.value)}
             placeholder="Enter key points (optional)"
-            style={{ width: '100%', height: '60px', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
+            style={{
+              width: '100%',
+              height: '60px',
+              padding: '10px',
+              border: '1px solid #ccc',
+              borderRadius: '4px'
+            }}
           />
         </div>
 
@@ -123,8 +159,12 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
 
         {/* Buttons */}
         <div className="button-group">
-          <button type="submit" className="submit-btn">
-            Submit
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
           <button type="button" className="cancel-btn" onClick={handleCancel}>
             Cancel
