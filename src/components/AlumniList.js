@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { FaFilter } from "react-icons/fa";
 import AlumniCard from "./AlumniCard";
 import RequestForm from "./RequestForm";
 import "./AlumniList.css";
-import "./RequestForm.css"; // Import RequestForm.css for notification styles
+import "./RequestForm.css";
+import RequestList from "./RequestList";
 
 const alumniData = [
   {
@@ -16,6 +18,7 @@ const alumniData = [
       "Passionate about building scalable web applications and mentoring junior developers.",
     skills: ["React", "Python", "React Native"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdLTh97PzuM7QR8Wvu81hw3rplxVpZkTRw-vnNGTm784xphL-aeAQGnID42mTfukG6jcE&usqp=CAU",
+    available: true,
   },
   {
     name: "Jaweriya Khan",
@@ -28,6 +31,7 @@ const alumniData = [
       "Passionate about crafting responsive UI/UX and improving user experience.",
     skills: ["React", "JavaScript", "CSS"],
     image: "https://snapynow.com/wp-content/uploads/unique-dp-for-girls_7.webp",
+    available: false,
   },
   {
     name: "Hassan Raza",
@@ -40,6 +44,7 @@ const alumniData = [
       "Works on scalable full-stack web apps and cloud-based systems.",
     skills: ["React", "Node.js", "AWS"],
     image: "https://media.istockphoto.com/id/495700524/photo/concept-for-student-graduation-day.jpg?s=612x612&w=0&k=20&c=auvS1Trtay2SYhONqD-8KJLWLS1iiDt9P4e0qUJYRkU=",
+    available: true,
   },
   {
     name: "Ume Rubab Malik",
@@ -52,6 +57,7 @@ const alumniData = [
       "Designs clean and accessible interfaces for web and mobile platforms.",
     skills: ["Figma", "Adobe XD", "Prototyping"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGhkwZU59FduJioGGXWQ6yOjWx-iHXpyMUwQ&s",
+    available: false,
   },
   {
     name: "Wafi Wahid",
@@ -64,6 +70,7 @@ const alumniData = [
       "Focused on scalable backend systems and API integration using Node.js.",
     skills: ["Node.js", "MongoDB", "Express"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYs1rh_0WCPG8N1Oby0zlpPBfp9G9Ls8Pqww&s",
+    available: true,
   },
   {
     name: "Arisha Noor",
@@ -76,6 +83,7 @@ const alumniData = [
       "Analyzing large datasets to drive business insights and optimize performance.",
     skills: ["Python", "Power BI", "SQL"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnt502F01zFHBKGODXAF3DbwYR0ggrYeCQEA&s",
+    available: false,
   },
   {
     name: "Usman Khalid",
@@ -88,6 +96,7 @@ const alumniData = [
       "Manages electrical automation projects and system implementation.",
     skills: ["AutoCAD", "PLC", "Team Coordination"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTmb3DvByna5k-BvH8jjjrMhPmDuuBKOsQyA&s",
+    available: true,
   },
   {
     name: "Minal Fatima",
@@ -100,6 +109,7 @@ const alumniData = [
       "Develops predictive models and AI-driven recommendation systems.",
     skills: ["TensorFlow", "Python", "ML Algorithms"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrQKYrPAyja79UqRKT8rpWv_sYOQtBNlGepw&s",
+    available: false,
   },
   {
     name: "Bilal Ahmed",
@@ -112,6 +122,7 @@ const alumniData = [
       "Automates deployment pipelines and manages cloud infrastructure.",
     skills: ["Docker", "CI/CD", "Linux"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-fcas3lPjcLH8J8zqDcyrsFAN-zJuYBIqqg&s",
+    available: true,
   },
   {
     name: "Laiba Noor",
@@ -124,6 +135,7 @@ const alumniData = [
       "Monitors network security and ensures data protection across digital systems.",
     skills: ["Network Security", "Firewalls", "Ethical Hacking"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB9Blk3Ns9qMQSZ0gJeQIlPWOvxOUjS0It9Q&s",
+    available: false,
   },
   {
     name: "Sara Imtiaz",
@@ -136,6 +148,7 @@ const alumniData = [
       "Creates engaging multimedia content for broadcast and social platforms.",
     skills: ["Video Editing", "Storytelling", "Script Writing"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZYkhzMLqO2CsDLzObPL6MIP0njxkO18ipYNx8ewgNnNdNf5mv6RiJJFgtTsYuEeP91jc&usqp=CAU",
+    available: true,
   },
   {
     name: "Areeba Saleem",
@@ -148,6 +161,7 @@ const alumniData = [
       "Handles campaigns and brand strategy for digital marketing initiatives.",
     skills: ["SEO", "Digital Marketing", "Communication"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa05JFli7CvbqnLOI1HIOWbp-LSXoYCGrOaw&s",
+    available: false,
   },
 ];
 
@@ -155,7 +169,15 @@ function AlumniList() {
   const [selectedAlumni, setSelectedAlumni] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
-  const [mentorNameForNotification, setMentorNameForNotification] = useState(null); // New state to store mentor name
+  const [mentorNameForNotification, setMentorNameForNotification] = useState(null);
+  
+  // ✅ ADD FILTERING STATE
+  const [showAvailable, setShowAvailable] = useState(false);
+
+  // ✅ FILTER ALUMNI BASED ON AVAILABILITY
+  const alumniToDisplay = showAvailable
+    ? alumniData.filter((alumni) => alumni.available)
+    : alumniData;
 
   const handleRequestMentorship = (alumni) => {
     setSelectedAlumni(alumni);
@@ -168,27 +190,39 @@ function AlumniList() {
   };
 
   const handleSubmitSuccess = () => {
-    setMentorNameForNotification(selectedAlumni?.name); // Store the mentor's name before closing
-    setShowForm(false); // Close the form modal
-    setShowNotification(true); // Show the success notification
-    // Auto-close notification after 5 seconds
+    setMentorNameForNotification(selectedAlumni?.name);
+    setShowForm(false);
+    setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
       setSelectedAlumni(null);
-      setMentorNameForNotification(null); // Clear the stored name
+      setMentorNameForNotification(null);
     }, 5000);
   };
 
   const handleCloseNotification = () => {
     setShowNotification(false);
     setSelectedAlumni(null);
-    setMentorNameForNotification(null); // Clear the stored name
+    setMentorNameForNotification(null);
   };
 
   return (
     <div className="alumni-list-container">
+      {/* ✅ ADD FILTER BUTTON HEADER */}
+      <div className="find-mentor-header">
+        <h2 className="find-mentor-heading">Find Your Mentor</h2>
+        <button
+          className="show-all-btn"
+          onClick={() => setShowAvailable(!showAvailable)}
+        >
+          <FaFilter className="filter-icon" />
+          {showAvailable ? "Show All" : "Available Only"}
+        </button>
+      </div>
+
       <div className="alumni-grid">
-        {alumniData.map((alum, index) => (
+        {/* ✅ USE FILTERED DATA */}
+        {alumniToDisplay.map((alum, index) => (
           <AlumniCard 
             key={index} 
             {...alum} 
@@ -196,6 +230,8 @@ function AlumniList() {
           />
         ))}
       </div>
+      
+      <RequestList />
 
       {/* Form Modal */}
       {showForm && (

@@ -24,4 +24,23 @@ router.post("/", async (req, res) => {
   }
 });
 
+// ✅ Update status (accept / decline)
+router.put("/:id/status", async (req, res) => {
+  try {
+    const { status } = req.body;
+    const updateData = { status };
+
+    if (status === "accepted") {
+      updateData.meetingLink = `https://meet.example.com/session-${Date.now()}`;
+    }
+
+    const updated = await Request.findByIdAndUpdate(req.params.id, updateData, {
+      new: true,
+    });
+    res.json(updated);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to update status" });
+  }
+});
+
 export default router;

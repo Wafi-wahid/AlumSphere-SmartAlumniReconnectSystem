@@ -1,0 +1,139 @@
+/* Mentorship Hero Section */
+.mentorship-hero {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(
+    135deg,
+    rgb(13, 53, 140) 0%,
+    rgb(11, 80, 229) 50%,
+    rgb(248, 198, 48) 100%
+  );
+  background-origin: padding-box;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  border: 0px solid rgb(229, 231, 235);
+  box-sizing: border-box;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  color: rgb(255, 255, 255);
+}
+
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  margin-bottom: 15px;
+  line-height: 1.2;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgb(255, 255, 255);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+  opacity: 0.9;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Find Your Mentor Section */
+.find-mentor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0 35px 0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.find-mentor-heading {
+  margin: 0;
+  line-height: 1;
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(13, 53, 140);
+}
+
+/* Show All / Available button */
+.show-all-btn {
+  background-color: rgb(13, 53, 140);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.show-all-btn:hover {
+  background-color: rgb(11, 80, 229);
+}
+
+/* ✅ Keep exactly 3 cards per row */
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ✅ Inline Available tag inside card (next to name) */
+.available-tag-inline {
+  background-color: #28a745;
+  color: white;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .alumni-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .alumni-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.available-tag-inline {
+  background-color: #28a745;
+  color: white;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+
+

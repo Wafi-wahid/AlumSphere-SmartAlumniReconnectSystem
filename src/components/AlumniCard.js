@@ -1,7 +1,6 @@
 import React from "react";
 import "./AlumniCard.css";
 
-
 function AlumniCard({
   name,
   class: year,
@@ -12,14 +11,17 @@ function AlumniCard({
   description,
   skills,
   image,
- onRequestMentorship 
+  available, // added available prop
+  onRequestMentorship 
 }) {
   return (
     <div className="alumni-card">
       <div className="card-header">
         <img src={image} alt={name} className="profile-pic" />
         <div className="header-text">
-          <h3>{name}</h3>
+          <h3>
+            {name} {available && <span className="available-tag-inline">Available</span>}
+          </h3>
           <p className="class">{year}</p>
           <span className="major">{major}</span>
         </div>
@@ -40,9 +42,8 @@ function AlumniCard({
 
       <div className="card-actions">
         <button className="connect-btn" onClick={onRequestMentorship}>
-           Request Mentorship
+          Request Mentorship
         </button>
-        
       </div>
     </div>
   );
