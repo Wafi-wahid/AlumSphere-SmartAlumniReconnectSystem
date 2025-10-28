@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './RequestForm.css';
 
 function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
@@ -13,44 +14,51 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
     e.preventDefault();
     setShowErrors(true);
 
+    // Validation
     if (!topicName.trim() || !type || !date) {
+      console.log('❌ Validation failed');
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/requests', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          mentorName,
-          topicName,
-          type,
-          date,
-          keyPoints,
-        }),
+      console.log('📤 Submitting request to backend...');
+      console.log('Data:', {
+        mentorName,
+        topicName: topicName.trim(),
+        type,
+        date,
+        keyPoints: keyPoints.trim(),
+        status: 'pending'
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to save request');
-      }
+      // ✅ SAVE TO DATABASE
+      const response = await axios.post('http://localhost:5000/api/requests', {
+        mentorName: mentorName,
+        topicName: topicName.trim(),
+        type: type,
+        date: date,
+        keyPoints: keyPoints.trim(),
+        status: 'pending'
+      });
 
-      const data = await response.json();
-      console.log('✅ Request saved successfully:', data);
+      console.log('✅ Request saved successfully:', response.data);
 
-      // Notify parent and reset form
-      onSubmitSuccess();
-      setShowErrors(false);
+      // Clear form
       setTopicName('');
       setType('');
       setDate('');
       setKeyPoints('');
+      setShowErrors(false);
+      
+      // Notify parent of success
+      onSubmitSuccess();
       onClose();
     } catch (error) {
       console.error('❌ Error saving request:', error);
-      alert('Something went wrong while submitting your request. Please try again.');
+      console.error('Error details:', error.response?.data || error.message);
+      alert('Failed to submit request. Please check console for details.');
     } finally {
       setIsSubmitting(false);
     }
@@ -81,6 +89,7 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
             value={topicName}
             onChange={(e) => setTopicName(e.target.value)}
             placeholder="e.g. Artificial Intelligence"
+            disabled={isSubmitting}
           />
           {showErrors && !topicName.trim() && (
             <p className="error-text">Please enter a topic name</p>
@@ -93,6 +102,7 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
+            disabled={isSubmitting}
             style={{
               width: '100%',
               padding: '10px',
@@ -125,13 +135,8 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
             value={keyPoints}
             onChange={(e) => setKeyPoints(e.target.value)}
             placeholder="Enter key points (optional)"
-            style={{
-              width: '100%',
-              height: '60px',
-              padding: '10px',
-              border: '1px solid #ccc',
-              borderRadius: '4px'
-            }}
+            disabled={isSubmitting}
+            style={{ width: '100%', height: '60px', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
           />
         </div>
 
@@ -142,6 +147,7 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
             type="datetime-local"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            disabled={isSubmitting}
             style={{
               width: '100%',
               padding: '10px',
@@ -159,14 +165,10 @@ function RequestForm({ mentorName, onClose, onSubmitSuccess }) {
 
         {/* Buttons */}
         <div className="button-group">
-          <button
-            type="submit"
-            className="submit-btn"
-            disabled={isSubmitting}
-          >
+          <button type="submit" className="submit-btn" disabled={isSubmitting}>
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
-          <button type="button" className="cancel-btn" onClick={handleCancel}>
+          <button type="button" className="cancel-btn" onClick={handleCancel} disabled={isSubmitting}>
             Cancel
           </button>
         </div>

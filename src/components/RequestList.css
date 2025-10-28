@@ -1,7 +1,3 @@
-/* ========================================
-   YOUR REQUESTS SECTION (ORIGINAL CSS)
-======================================== */
-
 /* Requests Section */
 .requests-section {
   padding: 40px 20px;
@@ -334,7 +330,7 @@
   color: #4b5563;
 }
 
-/* ✅ VIDEO SESSION MODAL */
+/* ✅ FEEDBACK MODAL */
 .video-modal-overlay {
   position: fixed;
   top: 0;
@@ -358,12 +354,11 @@
   }
 }
 
-.video-modal-container {
+.feedback-modal-container {
   background: white;
   border-radius: 12px;
   width: 90%;
-  max-width: 800px;
-  max-height: 90vh;
+  max-width: 480px;
   overflow: hidden;
   animation: scaleIn 0.3s ease-out;
 }
@@ -377,128 +372,6 @@
     transform: scale(1);
     opacity: 1;
   }
-}
-
-.video-modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 24px;
-  border-bottom: 1px solid #e5e7eb;
-  background: white;
-}
-
-.video-modal-header > div {
-  flex: 1;
-}
-
-.video-modal-header h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0;
-}
-
-.session-subtitle {
-  font-size: 14px;
-  color: #6b7280;
-  margin: 4px 0 0 0;
-}
-
-.close-video-modal {
-  background: #f3f4f6;
-  border: none;
-  font-size: 28px;
-  color: #6b7280;
-  cursor: pointer;
-  padding: 4px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  transition: all 0.2s;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.close-video-modal:hover {
-  background: #e5e7eb;
-  color: #1f2937;
-}
-
-/* Video Session Area */
-.video-session-area {
-  background: #1e293b;
-  padding: 80px 40px;
-  text-align: center;
-  color: white;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.video-icon {
-  font-size: 64px;
-  margin-bottom: 20px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-.video-session-area h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0 0 10px 0;
-}
-
-.video-session-area p {
-  font-size: 16px;
-  color: #94a3b8;
-  margin: 0;
-}
-
-/* Video Modal Footer */
-.video-modal-footer {
-  padding: 20px 24px;
-  display: flex;
-  justify-content: center;
-  background: white;
-  border-top: 1px solid #e5e7eb;
-}
-
-.btn.end-session {
-  background-color: #ef4444;
-  color: white;
-  padding: 12px 40px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-}
-
-.btn.end-session:hover {
-  background-color: #dc2626;
-  transform: scale(1.02);
-}
-
-/* ✅ FEEDBACK MODAL */
-.feedback-modal-container {
-  background: white;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 480px;
-  overflow: hidden;
-  animation: scaleIn 0.3s ease-out;
 }
 
 .feedback-modal-header {
@@ -659,7 +532,7 @@
 }
 
 /* ========================================
-   🆕 TOP MENTORS SECTION (NEW CSS STARTS HERE)
+   🆕 TOP MENTORS LEADERBOARD SECTION
 ======================================== */
 
 .top-mentors-section {
@@ -675,17 +548,6 @@
   font-weight: 700;
   color: rgb(13, 53, 140);
   margin-bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 0;
-}
-
-.trophy-icon {
-  display: none;
-}
-
-.top-mentors-subtitle {
-  display: none;
 }
 
 /* Leaderboard Container */
@@ -848,16 +710,12 @@
   margin-top: 2px;
 }
 
-/* ========================================
-   RESPONSIVE STYLES
-======================================== */
-
+/* Responsive */
 @media (max-width: 768px) {
   .requests-grid {
     grid-template-columns: 1fr;
   }
 
-  .video-modal-container,
   .feedback-modal-container {
     width: 95%;
   }
@@ -875,7 +733,7 @@
     font-size: 32px;
   }
 
-  /* Top Mentors Responsive */
+  /* Leaderboard Responsive */
   .mentor-item {
     gap: 12px;
     padding: 14px 16px;

@@ -19,10 +19,16 @@ const RequestsList = () => {
     const fetchRequests = async () => {
       try {
         const res = await axios.get("http://localhost:5000/api/requests");
-        setRequests(res.data);
-        console.log("✅ Requests loaded:", res.data);
         
-        res.data.forEach(req => {
+        // ✅ Sort: Oldest first (purane top pe, naye bottom)
+        const sortedRequests = res.data.sort((a, b) => {
+          return new Date(a.createdAt) - new Date(b.createdAt);
+        });
+        
+        setRequests(sortedRequests);
+        console.log("✅ Requests loaded:", sortedRequests.length);
+        
+        sortedRequests.forEach(req => {
           if (req.status === 'accepted') {
             console.log(`📋 Request ${req._id}:`, {
               status: req.status,
@@ -170,9 +176,6 @@ const RequestsList = () => {
 
   return (
     <div className="requests-section">
-      {/* ========================================
-          YOUR REQUESTS SECTION (ORIGINAL CODE)
-      ======================================== */}
       <h2>Your Requests</h2>
       <div className="requests-grid">
         {requests.map((req) => (
@@ -269,19 +272,17 @@ const RequestsList = () => {
       </div>
 
       {/* ========================================
-          🆕 TOP MENTORS SECTION (NEW CODE STARTS HERE)
+          🆕 TOP MENTORS LEADERBOARD (NEW SECTION)
       ======================================== */}
       <div className="top-mentors-section">
-        <h2 className="top-mentors-title">
-          <span className="trophy-icon">🏆</span> Top Mentors
-        </h2>
-        <p className="top-mentors-subtitle">Our most experienced and highest rated mentors</p>
+        <h2 className="top-mentors-title">Top Mentors</h2>
 
         <div className="leaderboard-container">
           <div className="leaderboard-header">
             <span className="leaderboard-icon">🏆</span>
             <span className="leaderboard-text">Leaderboard</span>
           </div>
+          <p className="leaderboard-subtitle">Our most experienced and highest-rated mentors</p>
 
           <div className="mentors-list">
             {/* Mentor 1 */}
@@ -292,8 +293,10 @@ const RequestsList = () => {
                 <p className="mentor-expertise">UI/UX Design, Product Thinking</p>
               </div>
               <div className="mentor-rating">
-                <span className="rating-star">⭐</span>
-                <span className="rating-value">4.9</span>
+                <div>
+                  <span className="rating-star">⭐</span>
+                  <span className="rating-value">4.9</span>
+                </div>
                 <span className="sessions-count">52 sessions</span>
               </div>
             </div>
@@ -306,8 +309,10 @@ const RequestsList = () => {
                 <p className="mentor-expertise">Marketing Strategy, Business Development</p>
               </div>
               <div className="mentor-rating">
-                <span className="rating-star">⭐</span>
-                <span className="rating-value">4.9</span>
+                <div>
+                  <span className="rating-star">⭐</span>
+                  <span className="rating-value">4.9</span>
+                </div>
                 <span className="sessions-count">48 sessions</span>
               </div>
             </div>
@@ -320,8 +325,10 @@ const RequestsList = () => {
                 <p className="mentor-expertise">AI & ML, Career Guidance</p>
               </div>
               <div className="mentor-rating">
-                <span className="rating-star">⭐</span>
-                <span className="rating-value">4.8</span>
+                <div>
+                  <span className="rating-star">⭐</span>
+                  <span className="rating-value">4.8</span>
+                </div>
                 <span className="sessions-count">45 sessions</span>
               </div>
             </div>
@@ -334,8 +341,10 @@ const RequestsList = () => {
                 <p className="mentor-expertise">Data Science, Research Methods</p>
               </div>
               <div className="mentor-rating">
-                <span className="rating-star">⭐</span>
-                <span className="rating-value">4.7</span>
+                <div>
+                  <span className="rating-star">⭐</span>
+                  <span className="rating-value">4.7</span>
+                </div>
                 <span className="sessions-count">41 sessions</span>
               </div>
             </div>
@@ -348,8 +357,10 @@ const RequestsList = () => {
                 <p className="mentor-expertise">Web Development, Cloud Computing</p>
               </div>
               <div className="mentor-rating">
-                <span className="rating-star">⭐</span>
-                <span className="rating-value">4.6</span>
+                <div>
+                  <span className="rating-star">⭐</span>
+                  <span className="rating-value">4.6</span>
+                </div>
                 <span className="sessions-count">38 sessions</span>
               </div>
             </div>
@@ -362,15 +373,17 @@ const RequestsList = () => {
                 <p className="mentor-expertise">Mobile App Development, Startup Guidance</p>
               </div>
               <div className="mentor-rating">
-                <span className="rating-star">⭐</span>
-                <span className="rating-value">4.5</span>
+                <div>
+                  <span className="rating-star">⭐</span>
+                  <span className="rating-value">4.5</span>
+                </div>
                 <span className="sessions-count">35 sessions</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* 🆕 TOP MENTORS SECTION ENDS HERE */}
+      {/* 🆕 LEADERBOARD SECTION ENDS */}
 
       {/* ✅ SUCCESS NOTIFICATION */}
       {showNotification && (
