@@ -1,0 +1,240 @@
+.alumni-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: left;
+}
+
+/* Header section */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Profile picture */
+.profile-pic {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Name, class, major */
+.header-text h3 {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: 16px;
+}
+.class {
+  color: #6b7280;
+  font-size: 13px;
+}
+.major {
+  background: #facc15;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* Role, company, etc. */
+.role {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 10px 0 3px;
+}
+.company {
+  font-size: 14px;
+  color: #1f2937;
+}
+.location {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+.description {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 10px;
+}
+
+/* Skills section */
+.skills {
+  margin-bottom: 12px;
+}
+.skill {
+  background: #e2e2e5;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+/* Buttons section */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Connect button */
+.connect-btn {
+  flex: 1;
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  padding: 7px 0;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: all 0.18s ease-in-out;
+}
+.connect-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+  background: #1e40af;
+}
+
+/* User icon */
+.user-icon {
+  font-size: 15px;
+  color: #e0e7ff;
+  opacity: 0.9;
+  margin-right: 6px;
+}
+
+.icon-btn {
+  background: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #a0a1a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px; /* Reduce horizontal margin */
+  padding: 4px 6px; /* Adjust padding if needed */
+}
+
+/* EMAIL TOOLTIP */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #333;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.chat-popup {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+.chat-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.chat-header h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #1d4ed8;
+}
+
+.chat-header p {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.close-chat {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.chat-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 13px;
+  resize: none;
+  margin-bottom: 8px;
+  min-height: 60px;
+}
+
+.chat-send {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  float: right;
+}
+.chat-send:hover {
+  background: #1e40af;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

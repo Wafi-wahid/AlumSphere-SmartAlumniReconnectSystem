@@ -1,0 +1,211 @@
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .alumni-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .alumni-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .alumni-grid {
+    gap: 12px;
+    padding: 12px;
+  }
+}
+
+/* Container */
+.alumni-list-container {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding: 20px 0;
+  position: relative;
+
+}
+
+/* Alumni Card */
+.alumni-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  position: relative;
+  
+  
+}
+
+/* Header section */
+.card-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+  align-items: flex-start; 
+}
+
+/* Profile picture */
+.profile-pic {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Name, Class, Major */
+.header-text h3 {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: 16px;
+}
+.class {
+  color: #6b7280;
+  font-size: 13px;
+  margin: 2px 0;
+}
+.major {
+  background: #facc15;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+/* Role, Company, Location */
+.role {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 14px 0 4px;
+}
+
+.company {
+  font-size: 14px;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+.location {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Skills */
+.skills {
+  margin-bottom: 10px;
+}
+.skill {
+  background: #e7e7ea;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-right: 6px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+/* Buttons */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Connect Button */
+.connect-btn {
+  flex: 1;
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  padding: 7px 0;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: all 0.18s ease-in-out;
+}
+
+.connect-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+  background: #1e40af;
+}
+
+/* Icons */
+.user-icon {
+  font-size: 15px;
+  color: #e0e7ff;
+  opacity: 0.9;
+  margin-right: 6px;
+}
+
+.icon-btn {
+  background: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #a0a1a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
+  padding: 4px 6px;
+}
+
+/* Tooltip */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #333;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
