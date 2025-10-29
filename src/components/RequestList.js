@@ -457,6 +457,31 @@ const RequestsList = () => {
                   ))}
                 </div>
               </div>
+                 
+                 
+        {/* 🆕 QUICK FEEDBACK TEMPLATES */}
+        <div className="quick-feedback-templates">
+          <label className="template-label">Quick Feedback Templates</label>
+          <div className="templates-scroll">
+            {[
+              "Great mentorship session 🌟",
+              "Very helpful & insightful 💡",
+              "Would love another session 🔁",
+              "Clear and motivating guidance 💬",
+              "Learned a lot today 📘",
+              "Excellent communication 👏",
+              "Practical and real-world advice 🔍"
+            ].map((template, index) => (
+              <button
+                key={index}
+                className="feedback-chip"
+                onClick={() => setComments(template)}
+              >
+                {template}
+              </button>
+            ))}
+          </div>
+        </div>
 
               <div className="comments-section">
                 <label className="comments-label">Comments (Optional)</label>

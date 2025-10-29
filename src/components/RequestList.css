@@ -767,3 +767,55 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* 🌟 QUICK FEEDBACK TEMPLATES SECTION */
+.quick-feedback-templates {
+  margin-top: 20px;
+}
+
+.template-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.templates-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.feedback-chip {
+  background: #f0f4ff;
+  border: 1px solid #d1d9ff;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.feedback-chip:hover {
+  background: #dce4ff;
+  transform: scale(1.05);
+}
+
+.feedback-chip:active {
+  background: #c6d3ff;
+}
+
+/* Optional: for nicer scrollbar */
+.templates-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.templates-scroll::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 10px;
+}

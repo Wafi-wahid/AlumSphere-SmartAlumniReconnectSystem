@@ -10,7 +10,14 @@ const MessageModal = ({ recipient, role, image, onClose }) => {
   const [isSending, setIsSending] = useState(false);
   const messagesEndRef = useRef(null);
 
-  // ✅ Auto scroll to bottom when new message added
+  // ✅ Example templates (you can customize)
+  const messageTemplates = [
+    "Hi there! Thanks for connecting 😊",
+    "It was great meeting you!",
+    "Looking forward to collaborating!",
+    "Can we schedule a quick chat?",
+  ];
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messageHistory]);
@@ -21,25 +28,15 @@ const MessageModal = ({ recipient, role, image, onClose }) => {
     setIsSending(true);
     
     try {
-      // ✅ Add message to local state FIRST (instant feedback)
       const newMessage = {
         text: message.trim(),
         sender: "You",
         timestamp: new Date(),
       };
       setMessageHistory(prev => [...prev, newMessage]);
-      
-      // ✅ Clear input immediately
       setMessage("");
-      
-      // ✅ Send to backend
       await sendMessage(recipient, message.trim());
-      
       console.log("✅ Message sent successfully");
-      
-      // ❌ DON'T CLOSE MODAL - Let user continue chatting
-      // onClose(); // REMOVED THIS LINE!
-      
     } catch (error) {
       console.error("❌ Error sending message:", error);
       alert("Failed to send message");
@@ -55,13 +52,16 @@ const MessageModal = ({ recipient, role, image, onClose }) => {
     }
   };
 
+  // ✅ When user clicks a template, fill it into input box
+  const handleTemplateClick = (text) => {
+    setMessage(text);
+  };
+
   return (
     <div className="overlay">
       <div className="message-card">
-        {/* Close Button */}
         <button className="close-btn" onClick={onClose}>×</button>
 
-        {/* Header */}
         <div className="header">
           <img src={image} alt={recipient} className="profile-img" />
           <div className="header-text">
@@ -70,7 +70,6 @@ const MessageModal = ({ recipient, role, image, onClose }) => {
           </div>
         </div>
 
-        {/* ✅ Messages Display Area */}
         <div className="messages-container">
           {messageHistory.length === 0 ? (
             <p className="info-text">Start a conversation with {recipient}</p>
@@ -90,7 +89,20 @@ const MessageModal = ({ recipient, role, image, onClose }) => {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Message Input */}
+        {/* ✅ Message Templates Section */}
+        <div className="templates-bar">
+          {messageTemplates.map((template, index) => (
+            <button
+              key={index}
+              className="template-btn"
+              onClick={() => handleTemplateClick(template)}
+            >
+              {template}
+            </button>
+          ))}
+        </div>
+
+        {/* Footer */}
         <div className="footer">
           <input
             type="text"

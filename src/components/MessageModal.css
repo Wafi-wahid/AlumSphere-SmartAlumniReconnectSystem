@@ -193,3 +193,49 @@
   background: #a8a8a8;
 }
 
+/* ✅ Horizontal scrollable templates row (single line like LinkedIn) */
+.templates-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;        /* ✅ Enables horizontal scrolling */
+  white-space: nowrap;     /* ✅ Prevents wrapping */
+  padding: 10px 16px;
+  background: #f0f4ff;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  scroll-behavior: smooth; /* ✅ Smooth scroll for touch/drag */
+}
+
+.templates-bar::-webkit-scrollbar {
+  height: 6px;             /* ✅ Small horizontal scrollbar */
+}
+
+.templates-bar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.templates-bar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* ✅ Template Buttons */
+.template-btn {
+  flex: 0 0 auto;          /* ✅ Prevent shrinking, stay same width */
+  background: white;
+  border: 1px solid #cfd9ff;
+  color: #007bff;
+  border-radius: 20px;
+  font-size: 13px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;     /* ✅ Keep text on one line */
+}
+
+.template-btn:hover {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
