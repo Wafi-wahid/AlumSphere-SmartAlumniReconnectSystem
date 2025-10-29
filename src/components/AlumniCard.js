@@ -12,14 +12,14 @@ function AlumniCard({
   skills,
   image,
   available,
-  onRequestMentorship 
+  onRequestMentorship,
+  onOpenMessageModal, // new prop from parent
 }) {
   return (
     <div className="alumni-card">
       <div className="card-header">
         <div className="profile-pic-wrapper">
           <img src={image} alt={name} className="profile-pic" />
-          {/* ✅ green active dot inside the image */}
           {available && <span className="online-dot"></span>}
         </div>
 
@@ -43,15 +43,23 @@ function AlumniCard({
         ))}
       </div>
 
-     <div className="card-actions">
-  <button className="connect-btn" onClick={onRequestMentorship}>
-    Request Mentorship
-  </button>
-  <button className="message-btn">
-    Message
-  </button>
-</div>
+      <div className="card-actions">
+        <button className="connect-btn" onClick={onRequestMentorship}>
+          Request Mentorship
+        </button>
 
+        {/* Notify parent to open the global modal and pass the alumni object */}
+        <button
+          className="message-btn"
+          onClick={() => onOpenMessageModal && onOpenMessageModal({
+            name,
+            role,
+            image
+          })}
+        >
+          Message
+        </button>
+      </div>
     </div>
   );
 }

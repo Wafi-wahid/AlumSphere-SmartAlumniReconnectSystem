@@ -6,6 +6,8 @@ import "./AlumniList.css";
 import "./RequestForm.css";
 import RequestList from "./RequestList";
 import axios from "axios";
+import MessageModal from "./MessageModal";
+import { sendMessage } from "../services/messageService"; // add this (adjust path if needed)
 
 function AlumniList() {
   const [alumniData, setAlumniData] = useState([]); // ✅ dynamic data from backend
@@ -15,6 +17,9 @@ function AlumniList() {
   const [mentorNameForNotification, setMentorNameForNotification] = useState(null);
   const [showAvailable, setShowAvailable] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  // NEW: active message user for global modal
+  const [activeMessageUser, setActiveMessageUser] = useState(null);
 
   // ✅ FETCH ALUMNI DATA FROM BACKEND
   useEffect(() => {
@@ -37,7 +42,11 @@ function AlumniList() {
       alumni.name.toLowerCase().includes(query) ||
       (alumni.major && alumni.major.toLowerCase().includes(query)) ||
       (alumni.role && alumni.role.toLowerCase().includes(query)) ||
-      (alumni.company && alumni.company.toLowerCase().includes(query));
+      (alumni.company && alumni.company.toLowerCase().includes(query))||
+       (alumni.skills &&
+      alumni.skills.some((skill) =>
+        skill.toLowerCase().includes(query)
+      ));
 
     return matchesAvailability && matchesSearch;
   });
@@ -67,6 +76,20 @@ function AlumniList() {
     setShowNotification(false);
     setSelectedAlumni(null);
     setMentorNameForNotification(null);
+  };
+
+  // NEW: send message handler (used by MessageModal)
+  const handleSendMessage = async (msg) => {
+    if (!activeMessageUser) return;
+    try {
+      await sendMessage(activeMessageUser.name, msg);
+      alert("Message sent to " + activeMessageUser.name);
+    } catch (err) {
+      console.error("Error sending message:", err);
+      alert("Failed to send message");
+    } finally {
+      setActiveMessageUser(null); // close modal after send
+    }
   };
 
   return (
@@ -102,6 +125,7 @@ function AlumniList() {
             key={index} 
             {...alum} 
             onRequestMentorship={() => handleRequestMentorship(alum)}
+            onOpenMessageModal={(user) => setActiveMessageUser(user)} // <-- pass handler
           />
         ))}
       </div>
@@ -134,6 +158,17 @@ function AlumniList() {
             <button className="close-notification-btn" onClick={handleCloseNotification}>×</button>
           </div>
         </div>
+      )}
+
+      {/* NEW: Single global MessageModal rendered at root of this component */}
+      {activeMessageUser && (
+        <MessageModal
+          recipient={activeMessageUser.name}
+          role={activeMessageUser.role}
+          image={activeMessageUser.image}
+          onClose={() => setActiveMessageUser(null)}
+          onSend={handleSendMessage}
+        />
       )}
     </div>
   );
