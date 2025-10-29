@@ -85,3 +85,42 @@
 .filter-icon {
   font-size: 14px;
 }
+
+/* 🔍 Search bar + filter layout */
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 10px 35px 10px 12px; /* space for icon */
+ border: 2px solid rgb(13, 53, 140); /* ✅ same color as button */
+  border-radius: 6px;
+  font-size: 14px;
+  width: 320px; /* 🔥 increased from 240px → 320px */
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+
+.search-bar input:focus {
+  border-color: rgb(13, 53, 140);
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(13, 53, 140); /* 🔥 same as button color */
+  font-size: 16px;
+  pointer-events: none;
+}

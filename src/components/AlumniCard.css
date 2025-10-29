@@ -138,3 +138,64 @@
   color: #6b7280;
 }
 
+
+
+/* Profile wrapper for correct dot placement */
+.profile-pic-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 74px;   /* actual image size */
+  height: 74px;
+}
+
+/* Profile picture styling */
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✅ Active dot inside same position for all 74x74 images */
+.online-dot {
+  position: absolute;
+  bottom: -2px;   /* moved further down */
+  right: 6px;
+  width: 12px;
+  height: 12px;
+  background-color: #22c55e;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+/* Message button - same as connect button */
+.message-btn {
+  flex: 1;
+  background: linear-gradient(135deg, rgb(13, 53, 140), rgb(11, 80, 229));
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 7px 0;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: all 0.18s ease-in-out;
+}
+
+/* Hover effect - same as connect button */
+.message-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(135deg, rgb(11, 45, 120), rgb(9, 67, 200));
+}
+
+

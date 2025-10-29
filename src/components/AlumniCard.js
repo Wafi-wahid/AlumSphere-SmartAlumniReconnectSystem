@@ -11,17 +11,20 @@ function AlumniCard({
   description,
   skills,
   image,
-  available, // added available prop
+  available,
   onRequestMentorship 
 }) {
   return (
     <div className="alumni-card">
       <div className="card-header">
-        <img src={image} alt={name} className="profile-pic" />
+        <div className="profile-pic-wrapper">
+          <img src={image} alt={name} className="profile-pic" />
+          {/* ✅ green active dot inside the image */}
+          {available && <span className="online-dot"></span>}
+        </div>
+
         <div className="header-text">
-          <h3>
-            {name} {available && <span className="available-tag-inline">Available</span>}
-          </h3>
+          <h3>{name}</h3>
           <p className="class">{year}</p>
           <span className="major">{major}</span>
         </div>
@@ -40,11 +43,15 @@ function AlumniCard({
         ))}
       </div>
 
-      <div className="card-actions">
-        <button className="connect-btn" onClick={onRequestMentorship}>
-          Request Mentorship
-        </button>
-      </div>
+     <div className="card-actions">
+  <button className="connect-btn" onClick={onRequestMentorship}>
+    Request Mentorship
+  </button>
+  <button className="message-btn">
+    Message
+  </button>
+</div>
+
     </div>
   );
 }
