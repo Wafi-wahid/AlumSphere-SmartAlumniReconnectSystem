@@ -1,0 +1,52 @@
+/* src/components/SuccessHeader.css */
+
+.success-hero {
+  width: 100vw;                    /* Full viewport width */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-image: linear-gradient(
+    135deg,
+    rgb(13, 53, 140) 0%,
+    rgb(11, 80, 229) 50%,
+    rgb(248, 198, 48) 100%
+  );
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: white;
+  overflow: hidden;
+}
+
+/* Content center mein, lekin full width background */
+.hero-content {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1rem; }
+}

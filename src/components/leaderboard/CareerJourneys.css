@@ -1,0 +1,69 @@
+.career-journeys {
+  margin: 3rem 0;
+  padding: 0 1rem;
+}
+
+.journeys-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.journey-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+}
+
+.journey-card:hover {
+  transform: translateY(-6px);
+}
+
+.initials {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.journey-content {
+  padding: 1.2rem;
+}
+
+.journey-content h4 {
+  margin: 0 0 0.4rem;
+  color: #1a1a1a;
+}
+
+.journey-content h4 span {
+  font-weight: normal;
+  color: #888;
+}
+
+.role {
+  font-weight: 600;
+  color: #2a9d8f;
+  margin: 0.4rem 0;
+}
+
+.story {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.6rem 0;
+}
+
+.read-more {
+  background: #f4a261;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,38 @@
+/* src/components/leaderboard/AchievementStats.css */
+.achievement-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  min-width: 140px;
+  transition: transform .2s;
+}
+
+.stat-card:hover { transform: translateY(-4px); }
+
+.stat-icon {
+  font-size: 2rem;
+  color: #f4a261;
+  margin-bottom: .5rem;
+}
+
+.stat-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+  color: #2a9d8f;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #555;
+  font-size: 0.9rem;
+}

@@ -1,7 +1,14 @@
-/* ========================================
-   🆕 TOP MENTORS LEADERBOARD SECTION
-======================================== */
+/* src/components/LeaderBoard.css */
+.leaderboard-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #f9f9f9;
+}
 
+/* ========================================
+   TOP MENTORS LEADERBOARD SECTION
+======================================== */
 .top-mentors-section {
   margin-top: 60px;
   padding: 0 20px 40px 20px;
@@ -15,6 +22,7 @@
   font-weight: 700;
   color: rgb(13, 53, 140);
   margin-bottom: 0;
+  text-align: center;
 }
 
 /* Leaderboard Container */
@@ -177,6 +185,24 @@
   margin-top: 2px;
 }
 
+/* Career Journeys & Achievements Section */
+.career-journeys-section,
+.achievements-section {
+  margin-top: 60px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(13, 53, 140);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .mentor-item {
@@ -194,20 +220,72 @@
     font-size: 15px;
   }
 
-  .mentor-expertise {
-    font-size: 12px;
-  }
-
-  .rating-value {
-    font-size: 16px;
-  }
-
-  .top-mentors-title {
+  .top-mentors-title,
+  .section-title {
     font-size: 24px;
   }
 }
 
-@media (max-width: 1024px) {
-  .requests-grid {
-    grid-template-columns: 1f
-  }}
+/* src/components/SuccessHeader.css */
+
+.success-hero {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-image: linear-gradient(
+    135deg,
+    rgb(13, 53, 140) 0%,
+    rgb(11, 80, 229) 50%,
+    rgb(248, 198, 48) 100%
+  );
+  min-height: 200px;           /* YE KAM KIYA (280 → 200) */
+  max-height: 200px;           /* YE BHI ADD KIYA */
+  height: 200px;               /* FIXED HEIGHT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;               /* PADDING BHI KAM KIYA */
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 2.8rem;           /* THODA CHHOTA KIYA */
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;           /* THODA CHHOTA */
+  max-width: 650px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .success-hero {
+    min-height: 180px;
+    height: 180px;
+    padding: 16px;
+  }
+  .hero-title { font-size: 2.2rem; }
+  .hero-subtitle { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.9rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+}

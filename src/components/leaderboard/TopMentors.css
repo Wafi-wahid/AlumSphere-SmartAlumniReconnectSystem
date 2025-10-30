@@ -1,0 +1,301 @@
+/* src/components/leaderboard/TopMentors.css */
+
+/* WALL OF FAME - LEFT ALIGNED */
+.wall-of-fame-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0d358c;
+  margin: 0 0 24px 30px;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+
+/* SECTION - FULL WIDTH, NO CLIPPING */
+.top-mentors-section {
+  margin: 0;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+
+/* CONTAINER - COMPLETELY HIDDEN */
+.leaderboard-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible;
+}
+
+/* MENTORS LIST - PERFECT FIT ON SCREEN */
+.mentors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 960px;                 /* PERFECT FIT - NOT TOO BIG */
+  margin: 0 auto;
+  padding: 0 20px;
+  background: transparent !important;
+  overflow: visible;
+}
+
+/* MENTOR CARD - CLEAN & FIT */
+.mentor-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 18px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  transition: all 0.2s ease;
+  width: 100%;
+  border: 1px solid #e5e7eb;        /* CLEAN BORDER */
+}
+
+/* RANK 1 - YELLOW */
+.rank-1-card {
+  background: linear-gradient(135deg, #fff8e1 0%, #fef3c7 100%);
+  border: 1.5px solid #fde68a !important;
+  box-shadow: 0 6px 18px rgba(251, 191, 36, 0.18);
+}
+
+/* HOVER */
+.mentor-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* LEFT */
+.mentor-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+/* RANK ICON */
+.rank-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.rank-icon.crown  { background: #f4d03f; }
+.rank-icon.trophy { background: #9ca3af; }
+.rank-icon.medal  { background: #fb923c; }
+
+.rank-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* AVATAR */
+.avatar-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+.mentor-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* INFO */
+.mentor-info { flex: 1; }
+.mentor-name { 
+  margin: 0; 
+  font-size: 1.1rem; 
+  font-weight: 600; 
+  color: #1a1a1a; 
+}
+.mentor-title { 
+  margin: 0.25rem 0; 
+  font-size: 0.9rem; 
+  color: #555; 
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+.star-rating { display: flex; gap: 2px; }
+.star-rating .filled { color: #f59e0b; }
+.star-rating .far { color: #d1d5db; }
+.rating-value { font-weight: 600; color: #0d9488; }
+.sessions-count { color: #888; }
+
+/* SCORE */
+.mentor-score {
+  text-align: right;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0d9488;
+}
+.score-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 500;
+  margin-top: -2px;
+}
+
+/* INFO - LEFT ALIGNED, NO CENTER */
+.mentor-info { 
+  flex: 1; 
+  text-align: left;               /* YE ADD KIYA */
+  padding-left: 0;                /* NO INDENT */
+}
+.mentor-name { 
+  margin: 0; 
+  font-size: 1.1rem; 
+  font-weight: 600; 
+  color: #1a1a1a; 
+  line-height: 1.4;
+}
+.mentor-title { 
+  margin: 4px 0 0;                /* THODA SPACING */
+  font-size: 0.9rem; 
+  color: #555; 
+  line-height: 1.4;
+}
+
+/* TAGS CONTAINER */
+.name-with-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+/* NAME + TAG - SAME LINE, NO COLUMN */
+.name-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;                    /* SPACE BETWEEN NAME & TAG */
+  flex-wrap: nowrap;            /* NO WRAP */
+  width: 100%;
+  overflow: hidden;
+}
+
+.mentor-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+}
+
+/* SINGLE TAG - COMPACT & CLEAN */
+.mentor-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mentor-tag.gold    { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.mentor-tag.purple  { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.mentor-tag.blue    { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.mentor-tag.green   { background: linear-gradient(135deg, #10b981, #059669); }
+
+.mentor-tag i {
+  font-size: 0.7rem;
+}
+
+
+
+
+/* AVATAR - SAME SIZE AS RANK */
+.avatar-wrapper {
+  width: 44px;          /* 56px → 44px */
+  height: 44px;         /* 56px → 44px */
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #e0e0e0;     /* THODA KAM BORDER */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+.mentor-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RANK ICON - SAME SIZE */
+.rank-icon,
+.rank-number {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.rank-icon.crown  { background: #f4d03f; }
+.rank-icon.trophy { background: #9ca3af; }
+.rank-icon.medal  { background: #fb923c; }
+
+.rank-number {
+  background: #f3f4f6;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* src/components/leaderboard/TopMentors.css */
+
+/* YE 2 LINES ADD KARO (BAKI SAB WAHI RAHEGA) */
+.header-with-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
